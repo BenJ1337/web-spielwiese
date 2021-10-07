@@ -1,20 +1,20 @@
 console.log('loading...');
 
-function toggle(component) {
-    console.log(component);
-    var navigationWrapper = document.getElementById("mainNavigationWrapper");
-    var navigation = document.getElementById("mainNavigation");
-    var classes = navigationWrapper.classList;
-    console.log(navigation.offsetHeight);
 
+function toggleMainNav() {
+    var navigationWrapper = document.getElementById("mainNavigationWrapper");
+    var classes = navigationWrapper.classList;
     navigationWrapper.classList.toggle("blend-out");
     if(!classes.contains("blend-out")) {
+        var navigation = document.getElementById("mainNavigation");
         navigationWrapper.style.height = navigation.offsetHeight + "px";
     } else {
-        navigationWrapper.style.height = 0 + "px";
+        navigationWrapper.style.height = null;
     }
-    console.log(classes);
-    console.log(navigationWrapper);
+}
+
+document.getElementById('mainNavigation').onclick = function(event){
+    toggleMainNav();
 }
 
 console.log('loading finished');
